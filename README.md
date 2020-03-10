@@ -52,8 +52,12 @@
 - There are several useful methods associated with file objects, but one of the most commonly used is `readline()`. This method will read lines one-by-one from the file. Note that the end of line character (\n) is retained when the line is read in.
     - `firstLine = inFile.readline()`
 - Files opened for reading can be used in a `for` loop, as follows, to go through all the lines in the file:
+
+```
         for line in file:
             print("Length of line is: %d" % (len(line)))
+```
+
 - Note that `line` is just a variable name we've chosen to hold each line as we iterate through the file. You can use any variable name you choose, as with any other `for` loop.
 
 
