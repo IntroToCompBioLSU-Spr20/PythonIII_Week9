@@ -1,5 +1,19 @@
 # Python - Week 3
 
+## While loops
+
+- Sometimes we want to do something repetitively, but we don't know ahead of time how many times we need to repeat it (as in a `for` loop.
+- In these cases, we can use a `while` loop. A `while` loop will continue to do something until a certain condition is no longer satisfied.
+
+```
+num = 0
+while num < 10:
+    print(num)
+    num += 1
+```
+
+- WARNING - You need to make sure to update variables such that the condition will eventually be satisified. If you don't, you could create an infinite loop!
+
 ## Dictionaries
 
 - Dictionaries are incredibly useful for storing pairs of things - known as "keys" and "values"
