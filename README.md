@@ -1,5 +1,19 @@
 # Python - Week 3
 
+## Updating to Python 3
+
+To ensure that we're all using the same, recent version of Python, please execute these commands after opening up a Terminal on SuperMike
+
+```
+echo "module load python/3.6.4-anaconda" >> ~/.modules
+```
+
+Then close the browser window with your Terminal, and open a new one. Now open up the Python interpreter using the `python` command. At the top, it should start with "Python 2.7.14 |Anaconda, Inc.|".
+
+## Practice Exercises
+
+A Jupyter notebook with practice exercises for the topics covered this week is [available here](https://github.com/IntroToCompBioLSU-Spr20/PythonIII_Week9/blob/master/Week9_Practice.ipynb).
+
 ## While loops
 
 - Sometimes we want to do something repetitively, but we don't know ahead of time how many times we need to repeat it (as in a `for` loop.
