@@ -8,7 +8,7 @@ To ensure that we're all using the same, recent version of Python, please execut
 echo "module load python/3.6.4-anaconda" >> ~/.modules
 ```
 
-Then close the browser window with your Terminal, and open a new one. Now open up the Python interpreter using the `python` command. At the top, it should start with "Python 2.7.14 |Anaconda, Inc.|".
+Then close the browser window with your Terminal, and open a new one. Now open up the Python interpreter using the `python` command. At the top, it should start with "Python 3.6.4 |Anaconda, Inc.|".
 
 ## Practice Exercises
 
