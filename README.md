@@ -117,6 +117,6 @@ while num < 10:
 
 Open the Jupyter notebook SimulateDNAEvolution.ipynb in this week's repository. In this assignment, you will complete code to simulate random changes in a DNA sequence over time, and then translate the DNA sequence to an amino acid sequence. Fill in the missing code in the notebook and use it to answer the questions. Submit your completed Jupyter notebook in the assignments folder.
 
-This assignment is due next __Tuesday, March 17th__.
+This assignment is due __Monday, March 30th__. (Updated after campus shutdown.)
 
 
