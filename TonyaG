@@ -1,0 +1,124 @@
+# Import needed modules
+import random
+import copy
+
+# The four nucleotides
+nucs = ["A","C","G","T"]
+
+# Length of sequence
+seqLen = 24
+# Use a for loop and random.choice() to create a random DNA sequence (startSeq) with length seqLen
+# startSeq should be a list
+startSeq = []
+for i in range(seqLen):
+startSeq.append( random.choice(nucs) )
+
+# Set the number of time steps to simulate
+steps = 20
+
+# Create a list to hold the set of sequences from each time step in the simulation
+seqs = []
+seqs.append( startSeq )
+
+# Use a for loop to simulate changes to the sequence across time steps
+for seq in range(steps):
+
+# Randomly pick an index in your sequence to change
+index = random.choice(range(seqLen))
+
+# Create a copy of the last sequence in seqs using copy.copy()
+newSeq = copy.copy(seqs[-1])
+
+# Draw a new nucleotide and make sure that it's different than what you started with
+newNucleotide = random.choice(nucs)
+while newNucleotide == newSeq[index]:
+newNucleotide = random.choice(nucs)
+
+# Update the randomly chosen position in the new sequence with the new nucleotide
+newSeq[index] = newNucleotide
+
+# Add the updated sequence to the seqs list
+seqs.append(newSeq)
+
+
+#Print all sequences
+for i in range(steps):
+print(seqs[i])
+
+['G', 'G', 'A', 'A', 'T', 'T', 'G', 'G', 'A', 'G', 'G', 'G', 'C', 'T', 'G', 'A', 'T', 'A', 'T', 'T', 'G', 'A', 'T', 'A']
+['G', 'G', 'A', 'A', 'T', 'T', 'G', 'G', 'A', 'G', 'G', 'G', 'T', 'T', 'G', 'A', 'T', 'A', 'T', 'T', 'G', 'A', 'T', 'A']
+['G', 'G', 'A', 'A', 'T', 'G', 'G', 'G', 'A', 'G', 'G', 'G', 'T', 'T', 'G', 'A', 'T', 'A', 'T', 'T', 'G', 'A', 'T', 'A']
+['G', 'G', 'A', 'A', 'G', 'G', 'G', 'G', 'A', 'G', 'G', 'G', 'T', 'T', 'G', 'A', 'T', 'A', 'T', 'T', 'G', 'A', 'T', 'A']
+['G', 'G', 'A', 'A', 'G', 'G', 'G', 'G', 'A', 'G', 'G', 'G', 'T', 'T', 'T', 'A', 'T', 'A', 'T', 'T', 'G', 'A', 'T', 'A']
+['G', 'G', 'A', 'A', 'G', 'G', 'G', 'G', 'A', 'G', 'G', 'G', 'T', 'G', 'T', 'A', 'T', 'A', 'T', 'T', 'G', 'A', 'T', 'A']
+['G', 'G', 'A', 'A', 'G', 'G', 'T', 'G', 'A', 'G', 'G', 'G', 'T', 'G', 'T', 'A', 'T', 'A', 'T', 'T', 'G', 'A', 'T', 'A']
+['G', 'G', 'A', 'A', 'G', 'G', 'T', 'G', 'A', 'G', 'G', 'G', 'T', 'G', 'T', 'T', 'T', 'A', 'T', 'T', 'G', 'A', 'T', 'A']
+['G', 'G', 'A', 'A', 'G', 'G', 'T', 'G', 'A', 'G', 'G', 'G', 'T', 'G', 'T', 'T', 'T', 'A', 'T', 'T', 'T', 'A', 'T', 'A']
+['G', 'G', 'A', 'A', 'G', 'G', 'T', 'A', 'A', 'G', 'G', 'G', 'T', 'G', 'T', 'T', 'T', 'A', 'T', 'T', 'T', 'A', 'T', 'A']
+['G', 'G', 'G', 'A', 'G', 'G', 'T', 'A', 'A', 'G', 'G', 'G', 'T', 'G', 'T', 'T', 'T', 'A', 'T', 'T', 'T', 'A', 'T', 'A']
+['G', 'G', 'G', 'A', 'G', 'G', 'T', 'A', 'A', 'G', 'G', 'G', 'T', 'G', 'T', 'T', 'T', 'A', 'T', 'T', 'T', 'C', 'T', 'A']
+['G', 'G', 'G', 'A', 'G', 'G', 'T', 'A', 'A', 'G', 'G', 'C', 'T', 'G', 'T', 'T', 'T', 'A', 'T', 'T', 'T', 'C', 'T', 'A']
+['G', 'G', 'G', 'A', 'G', 'G', 'T', 'A', 'A', 'G', 'G', 'C', 'T', 'G', 'T', 'T', 'T', 'T', 'T', 'T', 'T', 'C', 'T', 'A']
+['G', 'G', 'G', 'A', 'G', 'G', 'T', 'A', 'A', 'G', 'G', 'C', 'T', 'G', 'T', 'T', 'G', 'T', 'T', 'T', 'T', 'C', 'T', 'A']
+['G', 'G', 'G', 'A', 'G', 'G', 'T', 'A', 'A', 'G', 'G', 'C', 'T', 'G', 'T', 'C', 'G', 'T', 'T', 'T', 'T', 'C', 'T', 'A']
+['G', 'G', 'G', 'A', 'G', 'G', 'T', 'C', 'A', 'G', 'G', 'C', 'T', 'G', 'T', 'C', 'G', 'T', 'T', 'T', 'T', 'C', 'T', 'A']
+['G', 'G', 'G', 'A', 'G', 'G', 'T', 'C', 'A', 'G', 'G', 'C', 'T', 'G', 'T', 'C', 'A', 'T', 'T', 'T', 'T', 'C', 'T', 'A']
+['G', 'G', 'G', 'A', 'G', 'G', 'T', 'C', 'A', 'G', 'G', 'C', 'T', 'G', 'T', 'C', 'A', 'T', 'T', 'T', 'T', 'A', 'T', 'A']
+['G', 'G', 'G', 'A', 'G', 'G', 'T', 'C', 'A', 'G', 'G', 'C', 'C', 'G', 'T', 'C', 'A', 'T', 'T', 'T', 'T', 'A', 'T', 'A']
+startSeqStr = ""
+for n in startSeq:
+startSeqStr += n
+print(startSeqStr)
+?
+# Print the ending sequence as a string
+lastSeqStr = ""
+for n in seqs[len(seqs)-1]:
+lastSeqStr += n
+print(lastSeqStr)
+?
+# Print the Hamming distance between the starting and ending sequences
+dist = 0
+for i in range( len(startSeq) ):
+endSeq = seqs[len(seqs)-1]
+if startSeq[i] != endSeq[i]:
+dist += 1
+?
+print( "Hamming distance between first and last sequences is: " + str(dist) )
+?
+GGAATTGGAGGGCTGATATTGATA
+GGGAGGTCAGGCCGCCATTTTATA
+Hamming distance between first and last sequences is: 12
+#The Hamming distance between two sequences is simply the number of nucleotide positions at which they differ. What is the Hamming distance between your starting and ending sequences? How does this value compare if you re-run the simulation several times, first with a small number of steps and next with a much larger number of steps?
+#When I decreased the number from 1 to 0, my hamming distance went to zero.  However, when I increased the distance to +15 my Hamming distance increased to 165.
+# Here is a dictionary that translates between codons in a DNA sequence and amino acids
+gencode = {
+'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
+'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
+'AAC':'N', 'AAT':'N', 'AAA':'K', 'AAG':'K',
+'AGC':'S', 'AGT':'S', 'AGA':'R', 'AGG':'R',
+'CTA':'L', 'CTC':'L', 'CTG':'L', 'CTT':'L',
+'CCA':'P', 'CCC':'P', 'CCG':'P', 'CCT':'P',
+'CAC':'H', 'CAT':'H', 'CAA':'Q', 'CAG':'Q',
+'CGA':'R', 'CGC':'R', 'CGG':'R', 'CGT':'R',
+'GTA':'V', 'GTC':'V', 'GTG':'V', 'GTT':'V',
+'GCA':'A', 'GCC':'A', 'GCG':'A', 'GCT':'A',
+'GAC':'D', 'GAT':'D', 'GAA':'E', 'GAG':'E',
+'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
+'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
+'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
+'TAC':'Y', 'TAT':'Y', 'TAA':'_', 'TAG':'_',
+'TGC':'C', 'TGT':'C', 'TGA':'_', 'TGG':'W'}
+?
+# Translate your ending DNA sequence into an amino acid sequence
+# Make sure your sequence length is a multiple of 3!
+# Identify the sequence that needs to be translated
+# Indicate the sequence length is a multiple of 3
+# print the protein sequence
+protein_seq = ""
+if len(lastSeqStr)%3 == 0:
+
+for i in range(0, len(lastSeqStr),3):
+codon = lastSeqStr[i:i + 3]
+protein_seq += gencode[codon]
+print(protein_seq)
+GRSGRHFI
