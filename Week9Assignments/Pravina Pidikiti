@@ -1,0 +1,96 @@
+# Import needed modules
+import random
+import copy
+
+# The four nucleotides
+nucs = ["A","C","G","T"]
+
+seqLen = 24
+
+# Use a for loop and random.choice() to create a random DNA sequence (startSeq) 
+# with length seqLen
+# startSeq should be a list
+startSeq = []
+for i in range(seqLen):
+    startSeq.append( random.choice(nucs) )
+ 
+ # Set the number of time steps to simulate
+steps = 20
+
+# Create a list to hold the set of sequences from each time step in the simulation
+seqs = []
+seqs.append( startSeq )
+
+# Use a for loop to simulate changes to the sequence across time steps
+for seq in range(steps):
+    # Randomly pick an index in your sequence to change
+    randNuc = random.choice(range(seqLen))  
+    
+    # Create a copy of the last sequence in seqs using copy.copy()
+    copSeq = copy.copy(seqs[len(seqs)-1])
+    
+    # Draw a new nucleotide and make sure that it's different than what you started with
+    # Hint: a while loop would be very useful here
+    newNuc = random.choice(nucs)  #keep changing newNuc until its different that the nucleotide in the random index
+    while newNuc == copSeq[randNuc]:  
+        newNuc = random.choice(nucs)   
+        
+    # Update the randomly chosen position in the new sequence with the new nucleotide
+    copSeq[randNuc] = newNuc
+    
+    # Add the updated sequence to the seqs list
+    seqs.append(copSeq)
+    
+    # Print all sequences -- if needed, you can uncomment the code below
+for i in range(steps):
+    print(seqs[i])
+    
+    # Print the starting sequence as a string
+startSeqStr = ""
+for n in startSeq:
+    startSeqStr += n
+print(startSeqStr)
+
+# Print the ending sequence as a string
+lastSeqStr = ""
+for n in seqs[len(seqs)-1]:
+    lastSeqStr += n
+print(lastSeqStr)
+
+# Print the Hamming distance between the starting and ending sequences
+dist = 0
+for i in range( len(startSeq) ):
+    endSeq = seqs[len(seqs)-1]
+    if startSeq[i] != endSeq[i]:
+        dist += 1
+
+print( "Hamming distance between first and last sequences is: " + str(dist) )
+
+# Here is a dictionary that translates between codons in a DNA sequence and amino acids
+gencode = {
+    'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
+    'ACA':'T', 'ACC':'T', 'ACG':'T', 'ACT':'T',
+    'AAC':'N', 'AAT':'N', 'AAA':'K', 'AAG':'K',
+    'AGC':'S', 'AGT':'S', 'AGA':'R', 'AGG':'R',
+    'CTA':'L', 'CTC':'L', 'CTG':'L', 'CTT':'L',
+    'CCA':'P', 'CCC':'P', 'CCG':'P', 'CCT':'P',
+    'CAC':'H', 'CAT':'H', 'CAA':'Q', 'CAG':'Q',
+    'CGA':'R', 'CGC':'R', 'CGG':'R', 'CGT':'R',
+    'GTA':'V', 'GTC':'V', 'GTG':'V', 'GTT':'V',
+    'GCA':'A', 'GCC':'A', 'GCG':'A', 'GCT':'A',
+    'GAC':'D', 'GAT':'D', 'GAA':'E', 'GAG':'E',
+    'GGA':'G', 'GGC':'G', 'GGG':'G', 'GGT':'G',
+    'TCA':'S', 'TCC':'S', 'TCG':'S', 'TCT':'S',
+    'TTC':'F', 'TTT':'F', 'TTA':'L', 'TTG':'L',
+    'TAC':'Y', 'TAT':'Y', 'TAA':'_', 'TAG':'_',
+    'TGC':'C', 'TGT':'C', 'TGA':'_', 'TGG':'W'}
+
+# Translate your ending DNA sequence into an amino acid sequence
+# Make sure your sequence length is a multiple of 3!
+
+aminoSeq = "" #Printing amino acid sequence as a string
+if len(lastSeqStr)%3 == 0: #check if length is mutliple of 3
+    for i in range(0, len(lastSeqStr), 3): #(Start, stop, step) --> every 3 nuc.
+        codon = lastSeqStr[i:i+3] #variable for every 3 nuc 
+        aminoSeq += genecode.get(codon) #add the value of that codon from dictionary to amino acid sequence
+        print(aminoSeq)
